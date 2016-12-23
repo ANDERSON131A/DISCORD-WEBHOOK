@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+<h3>頭貼</h3>
+<input class="input" id="icon" type="text" name="icon" placeholder="頭貼"></br>
+<h3>名稱</h3>
+<input class="input" id="username" type="text" name="username" placeholder="名稱"></br>
+<h3>訊息</h3>
+<input class="input" id="message" type="text" name="message" placeholder="訊息"></br>
+
+<button class="button" onclick="send()">傳送</button>
+
+<script>
+//onclick.start
+function send() {
+
+var url = "https://discordapp.com/api/webhooks/249537730021818368/-W8EmwtUE4_4qCjDaH2SB24JQfs94X6iBv2JRcGPaIbxl4uyYLD8Qc7WwMllW-1KCN-9" ;
+var sendjson = {
+     "avatar_url": document.getElementById('icon').value,
+     "username": document.getElementById('username').value,
+     "content": document.getElementById('message').value
+    };
+post(url, sendjson);
+
+
+}
+//onclick.end
+function post(url, messagejson){
+	xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json");
+	var data = JSON.stringify(messagejson);
+	xhr.send(data);
+	xhr.onreadystatechange = function() {
+		if(this.status != 200){
+			alert(this.responseText);
+		}
+	}
+}
+</script>
+
+</body>
+</html>
