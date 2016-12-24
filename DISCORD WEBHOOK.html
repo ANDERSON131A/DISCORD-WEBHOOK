@@ -7,29 +7,32 @@
 <input class="input" id="username" type="text" placeholder="名稱"></br>
 <h3>訊息</h3>
 <input class="input" id="message" type="text" placeholder="訊息"></br>
+<!---SendButton--->
 </br>
 <button class="button" onclick="send()"><span>send</span></button>
+<!---SendButton--->
 
 <script>
 //onclick.start
 function send() {
-
 var url = "https://discordapp.com/api/webhooks/249537730021818368/-W8EmwtUE4_4qCjDaH2SB24JQfs94X6iBv2JRcGPaIbxl4uyYLD8Qc7WwMllW-1KCN-9" ;
+//HttpRequest url
+
 var sendjson = {
      "avatar_url": document.getElementById('icon').value,
      "username": document.getElementById('username').value,
      "content": document.getElementById('message').value
     };
-post(url, sendjson);
+//sendjson
 
-
+    post(url,sendjson);
 }
 //onclick.end
-function post(url, messagejson){
+function post(url,sendjson){
 	xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json");
-	var data = JSON.stringify(messagejson);
+	var data = JSON.stringify(sendjson);
 	xhr.send(data);
 	xhr.onreadystatechange = function() {
 		if(this.status != 200){
