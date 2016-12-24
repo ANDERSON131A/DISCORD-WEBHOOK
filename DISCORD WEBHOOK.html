@@ -44,6 +44,18 @@ function post(url,sendjson){
 }
 </script>
 <style>
+.forms {
+    border-style: solid;
+    border-width: 5px;
+    border-color: #fff;
+    background-color: #4CB5A1
+    
+	
+}
+h3 {
+    color: #FFFFFF;
+
+}
 /*input*/
 .input[type=text] {
     width: 300px;
@@ -78,14 +90,12 @@ function post(url,sendjson){
   cursor: pointer;
   margin: 0px;
 }
-
 .button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.7s;
 }
-
 .button span:after {
   content: '\00bb';
   position: absolute;
@@ -94,11 +104,9 @@ function post(url,sendjson){
   right: 50px;
   transition: 0.7s;
 }
-
 .button:hover span {
   padding-right: 40px;
 }
-
 .button:hover span:after {
   opacity: 10;
   right: 0;
