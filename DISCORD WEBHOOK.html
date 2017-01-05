@@ -32,13 +32,13 @@ var sendjson = {
 //onclick.end
 function post(url,sendjson){
 	xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json");
-	var data = JSON.stringify(sendjson);
-	xhr.send(data);
-	xhr.onreadystatechange = function() {
-		if(this.status != 200){
-			alert(this.responseText);
+	xhr.open("POST",url,true);
+	xhr.setRequestHeader("Content-type","application/json");
+	var REQUEST = JSON.stringify(sendjson);
+	xhr.send(REQUEST);
+	xhr.onreadystatechange = function(){
+		if(this.status != "200"){
+			alert("錯誤" + this.responseText);
 		}
 	}
 }
